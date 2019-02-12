@@ -1,0 +1,55 @@
+{
+  "name": "nauka-gita2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm-run-all test:*",
+    "test:html": "globstar nu-html-checker *.html",
+    "init-project": "npm install && npm-run-all init:*",
+    "init:dirs": "mkdirp sass css vendor images js",
+    "init:files": "touch README.md index.html sass/style.scss js/script.js",
+    "init:gitignore": "curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore",
+    "build": "npm-run-all build:* test",
+    "build:clean": "rimraf rm-rf css/*.css",
+    "build:sass": "node-sass --output-style compact -o css sass",
+    "build:autoprefixer": "autoprefixer-cli css/style.css",
+    "build-dev:sass": "node-sass --output-style expanded --source-map true -o css sass",
+    "watch": "npm-run-all build -p watch:*",
+    "watch:sassprefixer": "onchange sass/*.scss -- npm-run-all sassprefixer:*",
+    "sassprefixer:sass": "node-sass --output-style expanded --source-map true -o css sass",
+    "sassprefixer:autoprefixer": "autoprefixer-cli css/style.css",
+    "watch:browsersync": "browser-sync start --server --files css/*.css *.html",
+    "eslint": "eslint js/script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flammea/nauka-gita2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flammea/nauka-gita2/issues"
+  },
+  "homepage": "https://github.com/flammea/nauka-gita2#readme",
+  "devDependencies": {
+    "autoprefixer-cli": "^1.0.0",
+    "browser-sync": "^2.23.6",
+    "eslint": "^5.12.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.15.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "globstar": "^1.0.0",
+    "mkdirp": "^0.5.1",
+    "node-sass": "^4.7.2",
+    "npm-run-all": "^4.1.2",
+    "nu-html-checker": "^0.1.0",
+    "onchange": "^3.3.0"
+  },
+  "dependencies": {
+    "rimraf": "^2.6.2"
+  }
+}
