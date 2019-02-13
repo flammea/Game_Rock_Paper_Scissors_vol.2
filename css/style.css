@@ -5,16 +5,16 @@
     padding: 20px;
 }
 
-.prompt {
+#js-prompt {
     padding: 15px;
     margin: auto;
-    border: 1px solid gray;
+    border: 1px solid grey;
     border-radius: 5px;
     width: 250px;
     text-align: center;
     display: none;
 }
 
-.prompt button {
+#js-prompt button {
     margin: 10px 5px;
 }

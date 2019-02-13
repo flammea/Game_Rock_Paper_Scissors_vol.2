@@ -74,11 +74,15 @@ var playerNameElem = document.getElementById('js-playerName');
 
 var computerPointsElem = document.getElementById('js-computerPoints');
 
-const inputBox = document.querySelector('.prompt');
-const input = document.querySelector('.prompt input');
-const okBtn = document.querySelector('#ok_btn');
-const message = 'You do not enter your name';
-const paragraph = document.querySelector('.prompt p');
+var inputBox = document.querySelector('#js-prompt');
+
+var input = document.querySelector('#js-prompt input');
+
+var okBtn = document.querySelector('#js-okBtn');
+
+var message = 'You do not enter your name';
+
+var messageBox = document.querySelector('#js-prompt p');
 
 function newGame() {
     inputBox.style.display = 'block';
@@ -86,6 +90,7 @@ function newGame() {
         if (input.value !== '') {
             player.name = input.value;
             inputBox.style.display = 'none';
+
             player.score = computer.score = 0;
             gameState = 'started';
             setGameElements();
@@ -93,7 +98,7 @@ function newGame() {
             playerNameElem.innerHTML = player.name;
             setGamePoints();
         } else {
-            paragraph.textContent = message;
+            messageBox.textContent = message;
         }
     })
 }
