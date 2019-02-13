@@ -1,2 +1,2 @@
-# zadanie_9_7
-https://flammea.github.io/zadanie_9_7/.
+# Game_Rock_Paper_Scissors_vol.2
+https://flammea.github.io/Game_Rock_Paper_Scissors_vol.2/
